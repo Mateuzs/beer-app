@@ -1,0 +1,10 @@
+@import "common";
+
+.App-container {
+  background-color: $primary-background;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: $common-font-size;
+  color: $primary-foreground;
+}

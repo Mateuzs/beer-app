@@ -1,0 +1,13 @@
+@import "../../common";
+
+.search-button {
+  @extend %basic-button;
+  word-wrap: break-word;
+  &:active {
+    @extend %basic-button-active;
+  }
+}
+
+.search-button-disabled {
+  @extend %basic-button-disabled;
+}

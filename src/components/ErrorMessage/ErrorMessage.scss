@@ -1,0 +1,13 @@
+@import "../../common";
+
+.error-message {
+  color: $error-foreground;
+}
+
+.error-message-container {
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

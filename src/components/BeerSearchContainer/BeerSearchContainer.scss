@@ -1,0 +1,22 @@
+@import "../../common";
+
+.beer-search-container {
+  @extend %basic-container;
+  margin-top: 50px;
+}
+
+.beer-search-input-container {
+  justify-content: space-between;
+}
+
+.beer-search-input-elements {
+  flex: 3 1 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.beer-search-input-search-button {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+}

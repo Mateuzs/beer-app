@@ -1,0 +1,25 @@
+@import "../../common";
+
+.nav-bar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  background: #000000de;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+  .nav-bar-title {
+    color: $primary-foreground;
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+    font-style: italic;
+    transition: color 0.3s linear;
+    &:hover {
+      color: $button-hover-color;
+    }
+  }
+}

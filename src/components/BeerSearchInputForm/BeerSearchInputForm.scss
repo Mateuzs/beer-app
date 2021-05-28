@@ -1,0 +1,45 @@
+@import "../../common";
+
+.beer-search-description-correct {
+  color: $primary-foreground;
+  font-size: $smaller-description-font-size;
+  text-align: center;
+}
+
+.beer-search-description-incorrect {
+  color: $error-foreground;
+  font-size: $smaller-description-font-size;
+  text-align: center;
+}
+
+.beer-search-input {
+  @extend %basic-input-field;
+}
+
+.beer-search-input-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.beer-search-input-component {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  p {
+    margin: 0;
+  }
+}
+
+.bear-search-radio-input-container {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.beer-search-radio-input {
+  width: $description-font-size;
+  height: $description-font-size;
+  margin: 10px;
+}
