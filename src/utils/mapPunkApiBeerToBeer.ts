@@ -1,3 +1,4 @@
+// types
 import { Beer, PunkApiBeer } from "../types";
 
 const mapPunkApiBeerToBeer = (punkApiBeer: PunkApiBeer): Beer => {

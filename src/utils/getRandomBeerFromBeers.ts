@@ -1,3 +1,4 @@
+// types
 import { PunkApiBeer } from "../types";
 
 const getRandomBeerFromBeers = (beers: PunkApiBeer[]): PunkApiBeer =>

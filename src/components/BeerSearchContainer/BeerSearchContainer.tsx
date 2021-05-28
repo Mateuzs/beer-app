@@ -5,11 +5,11 @@ import { BeerSearchInputForm, BeerList, SearchButton } from "../../components";
 // types
 import { BeerSearchRadioInput } from "../../types";
 // constants, utils
+import { SEARCH_BUTTON_LABEL } from "../../constants";
 import {
   mapBeerSearchRadioInputToInputDescription,
   mapBeerSearchRadioInputToInputPlaceholder,
   mapBeerSearchRadioInputToInputValidation,
-  validateBeerNameInput,
 } from "../../utils";
 // styles
 import "./BeerSearchContainer.scss";
@@ -23,6 +23,7 @@ const BeerSearchContainer: FunctionComponent = () => {
   const [beerSearchInputValidation, setBeerSearchInputValidation] = useState<
     (value: string) => boolean
   >(() => mapBeerSearchRadioInputToInputValidation(beerSearchRadioInputValue));
+  const [isEligibleToSearch, setIsEligibleToSearch] = useState<boolean>(false);
 
   const onInputChangeCallback = useCallback(
     (inputValue: string) => setBeerSearchInputValue(inputValue),
@@ -36,11 +37,20 @@ const BeerSearchContainer: FunctionComponent = () => {
   useEffect(() => {
     const validationFunction = mapBeerSearchRadioInputToInputValidation(beerSearchRadioInputValue);
     setBeerSearchInputValidation(() => validationFunction);
+
+    const validationResult = validationFunction(beerSearchInputValue);
+    setIsValidBeerSearchInputValue(validationResult);
+
+    const isValidInputForm = !!beerSearchInputValue && validationResult;
+    setIsEligibleToSearch(isValidInputForm);
   }, [beerSearchRadioInputValue]);
 
   useEffect(() => {
     const validationResult = beerSearchInputValidation(beerSearchInputValue);
     setIsValidBeerSearchInputValue(validationResult);
+
+    const isValidInputForm = !!beerSearchInputValue && validationResult;
+    setIsEligibleToSearch(isValidInputForm);
   }, [beerSearchInputValue]);
 
   return (
@@ -58,8 +68,8 @@ const BeerSearchContainer: FunctionComponent = () => {
         </div>
         <div className="beer-search-input-search-button">
           <SearchButton
-            isDisabled={false}
-            label="Search!"
+            isDisabled={!isEligibleToSearch}
+            label={SEARCH_BUTTON_LABEL}
             onClickHandler={() => console.log("clicked!")}
           />
         </div>

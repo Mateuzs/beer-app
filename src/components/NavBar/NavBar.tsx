@@ -1,5 +1,5 @@
 // external
-import { FunctionComponent } from "react";
+import { FunctionComponent, memo } from "react";
 // constansts, utils
 import { APP_HEADER } from "../../constants";
 // styles
@@ -13,4 +13,4 @@ const NavBar: FunctionComponent = () => {
   );
 };
 
-export default NavBar;
+export default memo(NavBar);
