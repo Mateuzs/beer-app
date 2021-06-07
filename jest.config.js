@@ -1,6 +1,4 @@
-const { pathsToModuleNameMapper } = require("ts-jest/utils");
 const { defaults: tsjPreset } = require("ts-jest/presets");
-const { compilerOptions } = require("./tsconfig");
 
 module.exports = {
   transform: {
