@@ -9,6 +9,7 @@ import {
   IMAGE_NOT_AVAILABLE_INFO,
   IMAGE_URL_PLACEHOLDER,
   LAZY_IMAGE_BLUR_EFFECT,
+  BEER_IMAGE_ALT,
 } from "../../constants";
 // styles
 import "./LazyLoadImageContainer.scss";
@@ -21,7 +22,12 @@ const LazyLoadImageContainer: FunctionComponent<LazyLoadImageContainerProps> = (
   const isImagePlaceholder = imageUrl === IMAGE_URL_PLACEHOLDER;
 
   return imageUrl && !isImagePlaceholder ? (
-    <LazyLoadImage src={imageUrl} height={height} effect={LAZY_IMAGE_BLUR_EFFECT} />
+    <LazyLoadImage
+      src={imageUrl}
+      height={height}
+      effect={LAZY_IMAGE_BLUR_EFFECT}
+      alt={BEER_IMAGE_ALT}
+    />
   ) : (
     <div className="image-info-container">
       <p>{isImagePlaceholder ? LOADING_INFO : IMAGE_NOT_AVAILABLE_INFO}</p>

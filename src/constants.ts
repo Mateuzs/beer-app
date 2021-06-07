@@ -1,6 +1,3 @@
-// in this simplified solution all wording has been defined in constants
-// in real scenario it's required a translate mechanism to support many languages
-
 export const APP_HEADER = "Beer App";
 
 export const ERROR_MESSAGE = "Something went wrong! Try again later.";
@@ -13,6 +10,7 @@ export const IMAGE_URL_PLACEHOLDER = "Loading...";
 export const LAZY_IMAGE_BLUR_EFFECT = "blur";
 export const BEER_IMAGE_HEIGHT_PX = 300;
 export const SMALL_BEER_IMAGE_HEIGHT_PX = 150;
+export const BEER_IMAGE_ALT = "beer image";
 
 export const BEER_SEARCH_INPUT_DATE_DESCRIPTION = "format date: MM-YYYY";
 export const BEER_SEARCH_INPUT_NAME_DESCRIPTION = "Only letters and numbers";

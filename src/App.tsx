@@ -9,7 +9,6 @@ import {
 } from "./components";
 // constants, utils
 import { ERROR_MESSAGE } from "./constants";
-
 // styles
 import "./App.scss";
 
