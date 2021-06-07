@@ -6,7 +6,7 @@ import { BeerSearchInputForm, BeerList, SearchButton } from "../../components";
 // types
 import { Beer, BeerSearchRadioInput, PunkApiBeer, BeerSearchContainerProps } from "../../types";
 // constants, utils
-import { SEARCH_BUTTON_LABEL } from "../../constants";
+import { LOADING_INFO, SEARCH_BUTTON_LABEL } from "../../constants";
 import {
   mapBeerSearchRadioInputToInputDescription,
   mapBeerSearchRadioInputToInputPlaceholder,
@@ -37,6 +37,7 @@ const BeerSearchContainer: FunctionComponent<BeerSearchContainerProps> = ({
   const [isEligibleToSearch, setIsEligibleToSearch] = useState<boolean>(false);
   const [beerList, setBeerList] = useState<Beer[]>([]);
   const [isFetchedBeerList, setIsFetchedBeerList] = useState<boolean>(false);
+  const [isFetchingBeerList, setIsFetchingBeerList] = useState<boolean>(false);
 
   const onInputChangeCallback = useCallback(
     (inputValue: string) => setBeerSearchInputValue(inputValue),
@@ -57,11 +58,12 @@ const BeerSearchContainer: FunctionComponent<BeerSearchContainerProps> = ({
 
       try {
         setIsFetching(true);
-
+        setIsFetchingBeerList(true);
         const punkApiBeers = (await axios.get(searchBeersUrl)).data as PunkApiBeer[];
         const beers = punkApiBeers.map((punkApiBeer) => mapPunkApiBeerToBeer(punkApiBeer));
         setBeerList(beers);
         setIsFetchedBeerList(true);
+        setIsFetchingBeerList(false);
       } catch (error) {
         setIsError(true);
       }
@@ -108,7 +110,11 @@ const BeerSearchContainer: FunctionComponent<BeerSearchContainerProps> = ({
           />
         </div>
       </div>
-      <BeerList beerList={beerList} isFetchedBeerList={isFetchedBeerList} />
+      {isFetchingBeerList ? (
+        <div className="loading-info">{LOADING_INFO}</div>
+      ) : (
+        <BeerList beerList={beerList} isFetchedBeerList={isFetchedBeerList} />
+      )}
     </div>
   );
 };
