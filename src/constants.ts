@@ -12,8 +12,9 @@ export const IMAGE_NOT_AVAILABLE_INFO = "Image not available.";
 export const IMAGE_URL_PLACEHOLDER = "Loading...";
 export const LAZY_IMAGE_BLUR_EFFECT = "blur";
 export const BEER_IMAGE_HEIGHT_PX = 300;
+export const SMALL_BEER_IMAGE_HEIGHT_PX = 150;
 
-export const BEER_SEARCH_INPUT_DATE_DESCRIPTION = "format date: YYYY-MM";
+export const BEER_SEARCH_INPUT_DATE_DESCRIPTION = "format date: MM-YYYY";
 export const BEER_SEARCH_INPUT_NAME_DESCRIPTION = "Only letters and numbers";
 export const BEER_SEARCH_INPUT_DATE_PLACEHOLDER = "Date";
 export const BEER_SEARCH_INPUT_NAME_PLACEHOLDER = "Name";
@@ -22,4 +23,6 @@ export const BEER_SEARCH_INPUT_RADIO_NAME = "beer-settings";
 export const BEER_SEARCH_INPUT_RADIO_TYPE = "radio";
 export const BEER_SEARCH_INPUT_RADIO_NAME_DESCRIPTION = "Name";
 export const BEER_SEARCH_INPUT_RADIO_DATE_DESCRIPTION = "Brewed Before";
+export const BEER_SEARCH_INFO = "Nothing to display";
+
 export const SEARCH_BUTTON_LABEL = "Search!";

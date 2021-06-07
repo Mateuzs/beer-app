@@ -10,4 +10,5 @@
 
 .search-button-disabled {
   @extend %basic-button-disabled;
+  word-wrap: break-word;
 }

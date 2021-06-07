@@ -4,14 +4,14 @@ import axios from "axios";
 // components
 import { ErrorMessage, LazyLoadImageContainer, SearchButton } from "../../components";
 // types
-import { Beer, PunkApiBeer } from "../../types";
+import { Beer, PunkApiBeer, DisplayRandomBeerContainerProps } from "../../types";
 // constants, utils
 import {
   LABEL_SEARCH_BEER,
   LABEL_SEARCH_NON_ALCOHOLIC_BEER,
   LOADING_INFO,
   IMAGE_URL_PLACEHOLDER,
-  ERROR_MESSAGE,
+  BEER_IMAGE_HEIGHT_PX,
 } from "../../constants";
 import { config } from "../../config";
 import { mapPunkApiBeerToBeer, getRandomBeerFromBeers } from "../../utils";
@@ -26,29 +26,31 @@ const randomBeerPlaceholder: Beer = {
   name: LOADING_INFO,
   description: LOADING_INFO,
   imageUrl: IMAGE_URL_PLACEHOLDER,
+  id: NaN,
 };
 
-const DisplayRandomBeerContainer: FunctionComponent = () => {
-  const [fetchingError, setFetchingError] = useState<boolean>(false);
+const DisplayRandomBeerContainer: FunctionComponent<DisplayRandomBeerContainerProps> = ({
+  setIsError,
+  setIsFetching,
+  isFetching,
+}) => {
   const [randomBeer, setRandomBeer] = useState<Beer>(randomBeerPlaceholder);
-  const [disabledDataFetching, setDisabledDataFetching] = useState<boolean>(false);
 
   const fetchRandomBeer = useCallback(async () => {
     const randomBeerUrl = `${origin}${randomBeerPathname}`;
 
-    if (!disabledDataFetching) {
+    if (!isFetching) {
       try {
         setRandomBeer(randomBeerPlaceholder);
-        setDisabledDataFetching(true);
+        setIsFetching(true);
 
         const punkApiBeers = (await axios.get(randomBeerUrl)).data as PunkApiBeer[];
         const punkApiBeer = punkApiBeers.shift() as PunkApiBeer;
         const randomBeer = mapPunkApiBeerToBeer(punkApiBeer);
 
         setRandomBeer(randomBeer);
-        setFetchingError(false);
       } catch (error) {
-        setFetchingError(true);
+        setIsError(true);
       }
     }
   }, []);
@@ -56,10 +58,10 @@ const DisplayRandomBeerContainer: FunctionComponent = () => {
   const fetchRandomNonAlcoholicBeer = useCallback(async () => {
     const nonAlcoholicBeersUrl = `${origin}${nonAlcoholicBeersPathname}`;
 
-    if (!disabledDataFetching) {
+    if (!isFetching) {
       try {
         setRandomBeer(randomBeerPlaceholder);
-        setDisabledDataFetching(true);
+        setIsFetching(true);
 
         const nonAlcoholicPunkApiBears = (await axios.get(nonAlcoholicBeersUrl))
           .data as PunkApiBeer[];
@@ -67,9 +69,8 @@ const DisplayRandomBeerContainer: FunctionComponent = () => {
         const randomBeer = mapPunkApiBeerToBeer(punkApiBeer);
 
         setRandomBeer(randomBeer);
-        setFetchingError(false);
       } catch (error) {
-        setFetchingError(true);
+        setIsError(true);
       }
     }
   }, []);
@@ -78,42 +79,28 @@ const DisplayRandomBeerContainer: FunctionComponent = () => {
     fetchRandomBeer();
   }, []);
 
-  useEffect(() => {
-    let enableDataFetchingWithDelay: NodeJS.Timeout;
-
-    if (disabledDataFetching === true) {
-      enableDataFetchingWithDelay = setTimeout(() => {
-        setDisabledDataFetching(false);
-      }, 1000);
-    }
-
-    return () => clearTimeout(enableDataFetchingWithDelay);
-  }, [disabledDataFetching]);
-
-  return !fetchingError ? (
+  return (
     <div className="random-beer-container">
       <p className="random-beer-title">{randomBeer.name}</p>
       <div className="random-beer-description-container">
         <div className="random-beer-image">
-          <LazyLoadImageContainer imageUrl={randomBeer.imageUrl} />
+          <LazyLoadImageContainer imageUrl={randomBeer.imageUrl} height={BEER_IMAGE_HEIGHT_PX} />
         </div>
         <div className="random-beer-description">{randomBeer.description}</div>
         <div className="random-beer-description-buttons">
           <SearchButton
-            isDisabled={disabledDataFetching}
+            isDisabled={isFetching}
             label={LABEL_SEARCH_BEER}
             onClickHandler={fetchRandomBeer}
           />
           <SearchButton
-            isDisabled={disabledDataFetching}
+            isDisabled={isFetching}
             label={LABEL_SEARCH_NON_ALCOHOLIC_BEER}
             onClickHandler={fetchRandomNonAlcoholicBeer}
           />
         </div>
       </div>
     </div>
-  ) : (
-    <ErrorMessage errorMessage={ERROR_MESSAGE} />
   );
 };
 

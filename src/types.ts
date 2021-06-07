@@ -4,6 +4,8 @@ export interface Config {
     origin: string;
     randomBeerPathname: string;
     nonAlcoholicBeersPathname: string;
+    searchByBeerNamePathname: string;
+    searchByBeerBrewedBeforeDatePathname: string;
   };
 }
 // components
@@ -19,6 +21,7 @@ export interface ErrorMessageProps {
 
 export interface LazyLoadImageContainerProps {
   imageUrl: string | null;
+  height: number;
 }
 
 export interface BeerSearchInputFormProps {
@@ -30,8 +33,27 @@ export interface BeerSearchInputFormProps {
 
   isValidInputValue: boolean;
 }
+
+export interface BeerListProps {
+  beerList: Beer[];
+  isFetchedBeerList: boolean;
+}
+
+export interface BeerSearchContainerProps {
+  setIsError: (value: boolean) => void;
+  setIsFetching: (value: boolean) => void;
+  isFetching: boolean;
+}
+
+export interface DisplayRandomBeerContainerProps {
+  setIsError: (value: boolean) => void;
+  setIsFetching: (value: boolean) => void;
+  isFetching: boolean;
+}
+
 // internal data structure
 export interface Beer {
+  id: number;
   name: string;
   imageUrl: string;
   description: string;

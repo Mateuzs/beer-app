@@ -1,0 +1,50 @@
+@import "../../common.scss";
+
+.beer-list-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.beer-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+.beer-element {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.beer-element-image {
+  flex: 1 1 0;
+  margin: 10px;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+}
+
+.beer-element-descripiton {
+  display: flex;
+  flex-direction: column;
+  flex: 3 1 0;
+  text-align: justify;
+  max-width: 1200px;
+}
+
+.beer-element-title {
+  font-size: $medium-description-font-size;
+  font-weight: 600;
+}
+
+.beer-element-descripiton {
+  font-size: $smaller-description-font-size;
+}
+
+.beer-search-info {
+  text-align: center;
+}

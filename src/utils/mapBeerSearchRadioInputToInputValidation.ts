@@ -7,7 +7,7 @@ export const validateBeerNameInput = (value: string): boolean => {
 };
 
 export const validateBeerBrewedDate = (value: string): boolean => {
-  const regexPattern = /^[1-9]\d{3,}-(0?[1-9]|1[012])$/;
+  const regexPattern = /^(0?[1-9]|1[012])-[1-9]\d{3}$/;
   return !!value && regexPattern.test(value);
 };
 
