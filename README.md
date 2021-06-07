@@ -22,7 +22,7 @@ run the app locally:
 yarn start
 ```
 
-## Testing
+## Testing Requirements
 
 In order to run tests inside the application, run the following command:
 
@@ -30,17 +30,21 @@ In order to run tests inside the application, run the following command:
 yarn test
 ```
 
-It will run all tests in the application and return the result of testing with coverage. In the summary you can see the number of tests written and passed / failed. Moreover you can find there a detailer report of coverage split by statements, branches, functions and lines.
+It will run all tests in the application and return the result of testing with coverage. In the summary you can see the number of tests written and passed / failed. Moreover you can find there a detailer report of coverage split by statements, branches, functions and lines. The tests are not covering 100% of the application - it's simplified testing and the main purpose is to show the approach and ideas how to test such application, instead of reaching 100% of coverage. Current coverage is around 80%, and it is known issue.
 
-For testing there is used [Jest](https://jestjs.io/) and [Enzyme](https://enzymejs.github.io/enzyme/). This libraries allow to mount the components and make assertion on them, for example if the component has rendered proper children, text, data, etc. by creating special data-test-id tags.
+For testing it's been used [Jest](https://jestjs.io/) and [Enzyme](https://enzymejs.github.io/enzyme/). This libraries allow to mount the components and make assertion on them, for example if the component has rendered proper children, text, data, etc. by creating special data-test-id tags and comparing snapshots.
 
 Alternatively, for mocking api calls I would use [Nock](https://github.com/nock/nock), to prepare an isolated environment for testing the app. Also [react testing library](https://testing-library.com/docs/react-testing-library/example-intro) is worth considering, for component testing.
 
 For e2e testing I would prepare some nonprod and prod environment, like deployment on the Netlify platform.
 Current version of the app would be tested by some test written with tool like [webdriver.io](https://webdriver.io/). The tests would go to
-the page and travel through it simulating the user - searching the weather, adding the weather stations, etc. The
+the page and travel through it simulating the user - searching beers, fetching random beers, etc. The
 tests would check if proper button are in place, if after the click the proper view appears, etc. Tests would compare
 the views for given scenario and verify if the view is as expected.
+
+## Caching Requirements
+
+The task required taking into consideration api resource limit, which allows to hit the endpoint once per second. I used the simplified solution, which blocks buttons and fetching handlers for a second after request triggered by the user. It's been used a react state lifting strategy. In real scenario, there is a plenty of solution for solve such issue, like caching some requests, or fetching more data than required and displaying some parts of it during next few requests, etc.
 
 ## Technology, Tools, Workflow
 
@@ -51,10 +55,10 @@ component is a function component. The whole application is developed with compo
 using class components.
 
 Project has been written in [Typescript](https://www.typescriptlang.org/) - it's a superset of [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
-Main reason of using Typescript is the typing posibility. We can define type of values, functions, components, interfaces, etc. what generates the more solid and stable,
+Main reason of using Typescript is the typing posibility. We can define type of values, functions, components, interfaces, etc. what generates the more solid and stable code,
 less error prone, and much easier to read by developers. At first glimpse someone can see what data a function or component
 requires and what data is returned as a result. During the build process Typescript is transpiled to Javascript and the
-types are removed from bundle.
+types are removed from the bundle.
 
 For components styling there has been used a [Sass](https://sass-lang.com/) stylesheet language which is fully compiled to CSS. It comes
 with great features allowing constants definition, common styles inheritance, composition, importing, etc. which
@@ -65,7 +69,7 @@ Project is using a [Webpack](https://webpack.js.org/) bundler, which is a very p
 dependencies. It allows to define a development and optimized production build. Most important features are: production build
 optimization, code splitting into smaller chunks, tree shaking, hot reload during development, bundle analysis and much more.
 
-For request making to the Open Weather Api, project uses [axios](https://github.com/axios/axios) library, popular and tested dependency.
+For request making to the Beer API, project uses [axios](https://github.com/axios/axios) library, popular and tested dependency.
 
 To sum up, technology used in the project is:
 
