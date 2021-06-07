@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BeerSearchContainer component should match the snapshot and styles 1`] = `
+<div
+  className="beer-search-container"
+>
+  <div
+    className="beer-search-input-container"
+  >
+    <div
+      className="beer-search-input-elements"
+      data-test-id="beer-search-input-elements"
+    >
+      <Memo(BeerSearchInputForm)
+        inputDescription="Only letters and numbers"
+        inputPlaceholder="Name"
+        inputValue=""
+        isValidInputValue={true}
+        onInputChangeCallback={[Function]}
+        onInputRadioChangeCallback={[Function]}
+      />
+    </div>
+    <div
+      className="beer-search-input-search-button"
+      data-test-id="beer-search-input-search-button"
+    >
+      <Memo(SearchButton)
+        isDisabled={true}
+        label="Search!"
+        onClickHandler={[Function]}
+      />
+    </div>
+  </div>
+  <Memo(BeerList)
+    beerList={Array []}
+    isFetchedBeerList={false}
+  />
+</div>
+`;

@@ -6,7 +6,7 @@ import { ErrorMessageProps } from "../../types";
 import "./ErrorMessage.scss";
 
 const ErrorMessage: FunctionComponent<ErrorMessageProps> = ({ errorMessage }) => (
-  <div className="error-message-container">
+  <div data-test-id="error-message-info" className="error-message-container">
     <h3 className="error-message">{errorMessage}</h3>
   </div>
 );

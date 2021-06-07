@@ -92,7 +92,7 @@ const BeerSearchContainer: FunctionComponent<BeerSearchContainerProps> = ({
   return (
     <div className="beer-search-container">
       <div className="beer-search-input-container">
-        <div className="beer-search-input-elements">
+        <div data-test-id="beer-search-input-elements" className="beer-search-input-elements">
           <BeerSearchInputForm
             inputValue={beerSearchInputValue}
             inputPlaceholder={mapBeerSearchRadioInputToInputPlaceholder(beerSearchRadioInputValue)}
@@ -102,7 +102,10 @@ const BeerSearchContainer: FunctionComponent<BeerSearchContainerProps> = ({
             isValidInputValue={isValidbeerSearchInputValue}
           />
         </div>
-        <div className="beer-search-input-search-button">
+        <div
+          data-test-id="beer-search-input-search-button"
+          className="beer-search-input-search-button"
+        >
           <SearchButton
             isDisabled={!isEligibleToSearch || isFetching}
             label={SEARCH_BUTTON_LABEL}
@@ -111,7 +114,9 @@ const BeerSearchContainer: FunctionComponent<BeerSearchContainerProps> = ({
         </div>
       </div>
       {isFetchingBeerList ? (
-        <div className="loading-info">{LOADING_INFO}</div>
+        <div data-test-id="search-loading-info" className="loading-info">
+          {LOADING_INFO}
+        </div>
       ) : (
         <BeerList beerList={beerList} isFetchedBeerList={isFetchedBeerList} />
       )}

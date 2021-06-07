@@ -22,14 +22,16 @@ const LazyLoadImageContainer: FunctionComponent<LazyLoadImageContainerProps> = (
   const isImagePlaceholder = imageUrl === IMAGE_URL_PLACEHOLDER;
 
   return imageUrl && !isImagePlaceholder ? (
-    <LazyLoadImage
-      src={imageUrl}
-      height={height}
-      effect={LAZY_IMAGE_BLUR_EFFECT}
-      alt={BEER_IMAGE_ALT}
-    />
+    <div data-test-id="lazy-load-image">
+      <LazyLoadImage
+        src={imageUrl}
+        height={height}
+        effect={LAZY_IMAGE_BLUR_EFFECT}
+        alt={BEER_IMAGE_ALT}
+      />
+    </div>
   ) : (
-    <div className="image-info-container">
+    <div data-test-id="lazy-load-image-placeholder" className="image-info-container">
       <p>{isImagePlaceholder ? LOADING_INFO : IMAGE_NOT_AVAILABLE_INFO}</p>
     </div>
   );

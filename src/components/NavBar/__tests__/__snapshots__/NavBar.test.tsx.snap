@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBar component should match the snapshot and styles 1`] = `
+<div
+  className="nav-bar"
+>
+  <p
+    className="nav-bar-title"
+    data-test-id="nav-bar-text"
+  >
+    Beer App
+  </p>
+</div>
+`;

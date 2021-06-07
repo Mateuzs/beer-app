@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BeerSearchInputForm component should match the snapshot and styles 1`] = `
+<div
+  className="beer-search-input-container"
+>
+  <div
+    className="beer-search-input-component"
+  >
+    <input
+      className="beer-search-input"
+      data-test-id="beer-search-input"
+      onChange={[Function]}
+      placeholder="INPUT_PLACEHOLDER"
+      value="INPUT_VALUE"
+    />
+    <p
+      className="beer-search-description-correct"
+      data-test-id="beer-search-description"
+    >
+      INPUT_DESCRIPITON
+    </p>
+  </div>
+  <div
+    className="bear-search-radio-input-container"
+  >
+    <input
+      className="beer-search-radio-input"
+      data-test-id="beer-search-input-radio-name"
+      defaultChecked={true}
+      id="name"
+      name="beer-settings"
+      onChange={[Function]}
+      type="radio"
+      value="name"
+    />
+    <label
+      htmlFor="name"
+    >
+      Name
+    </label>
+    <input
+      className="beer-search-radio-input"
+      data-test-id="beer-search-input-radio-brewed-before"
+      id="brewedBeforeDate"
+      name="beer-settings"
+      onChange={[Function]}
+      type="radio"
+      value="brewedBeforeDate"
+    />
+    <label
+      htmlFor="brewedBeforeDate"
+    >
+      Brewed Before
+    </label>
+  </div>
+</div>
+`;

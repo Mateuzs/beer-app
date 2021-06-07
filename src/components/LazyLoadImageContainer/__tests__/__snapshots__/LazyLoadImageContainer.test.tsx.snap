@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LazyLoadImageContainer component should match the snapshot and styles 1`] = `
+<div
+  data-test-id="lazy-load-image"
+>
+  <t
+    afterLoad={[Function]}
+    alt="beer image"
+    beforeLoad={[Function]}
+    delayMethod="throttle"
+    delayTime={300}
+    effect="blur"
+    height={100}
+    placeholderSrc={null}
+    src="image-url"
+    threshold={100}
+    useIntersectionObserver={true}
+    visibleByDefault={false}
+    wrapperClassName=""
+  />
+</div>
+`;

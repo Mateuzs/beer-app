@@ -38,15 +38,19 @@ const BeerSearchInputForm: FunctionComponent<BeerSearchInputFormProps> = ({
     <div className="beer-search-input-container">
       <div className="beer-search-input-component">
         <input
+          data-test-id="beer-search-input"
           className="beer-search-input"
           value={inputValue}
           placeholder={inputPlaceholder}
           onChange={handleInputchange}
         />
-        <p className={descriptionClassName}>{inputDescription}</p>
+        <p data-test-id="beer-search-description" className={descriptionClassName}>
+          {inputDescription}
+        </p>
       </div>
       <div className="bear-search-radio-input-container">
         <input
+          data-test-id="beer-search-input-radio-name"
           className="beer-search-radio-input"
           type={BEER_SEARCH_INPUT_RADIO_TYPE}
           name={BEER_SEARCH_INPUT_RADIO_NAME}
@@ -59,6 +63,7 @@ const BeerSearchInputForm: FunctionComponent<BeerSearchInputFormProps> = ({
           {BEER_SEARCH_INPUT_RADIO_NAME_DESCRIPTION}
         </label>
         <input
+          data-test-id="beer-search-input-radio-brewed-before"
           className="beer-search-radio-input"
           type={BEER_SEARCH_INPUT_RADIO_TYPE}
           name={BEER_SEARCH_INPUT_RADIO_NAME}

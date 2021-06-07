@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BeerList component should match the snapshot and styles 1`] = `
+<div
+  className="beer-list-container"
+>
+  <ul
+    className="beer-list"
+    data-test-id="beer-list"
+  >
+    <li
+      className="beer-element"
+      key="1"
+    >
+      <div
+        className="beer-element-image"
+      >
+        <Memo(LazyLoadImageContainer)
+          height={150}
+          imageUrl="BEER_URL"
+        />
+      </div>
+      <div
+        className="beer-element-descripiton"
+      >
+        <p
+          className="beer-element-title"
+        >
+          BEER
+        </p>
+        <div
+          className="beer-element-description"
+        >
+          DESCRIPTION
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+`;

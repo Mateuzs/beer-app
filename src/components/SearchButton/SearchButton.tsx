@@ -10,9 +10,14 @@ const SearchButton: FunctionComponent<SearchButtonProps> = ({
   onClickHandler,
   isDisabled,
 }) => {
-  const searachButtonClassName = isDisabled ? "search-button-disabled" : "search-button";
+  const searchButtonClassName = isDisabled ? "search-button-disabled" : "search-button";
   return (
-    <button className={searachButtonClassName} onClick={onClickHandler} disabled={isDisabled}>
+    <button
+      data-test-id="search-button"
+      className={searchButtonClassName}
+      onClick={onClickHandler}
+      disabled={isDisabled}
+    >
       {label}
     </button>
   );

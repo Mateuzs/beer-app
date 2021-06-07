@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DisplayRandomBeerContainer component should match the snapshot and styles 1`] = `
+<div
+  className="random-beer-container"
+>
+  <p
+    className="random-beer-title"
+    data-test-id="random-beer-title"
+  >
+    Loading...
+  </p>
+  <div
+    className="random-beer-description-container"
+  >
+    <div
+      className="random-beer-image"
+      data-test-id="random-beer-image"
+    >
+      <Memo(LazyLoadImageContainer)
+        height={300}
+        imageUrl="Loading..."
+      />
+    </div>
+    <div
+      className="random-beer-description"
+      data-test-id="random-beer-description"
+    >
+      Loading...
+    </div>
+    <div
+      className="random-beer-description-buttons"
+      data-test-id="random-beer-description-buttons"
+    >
+      <Memo(SearchButton)
+        isDisabled={false}
+        label="Another beer!"
+        onClickHandler={[Function]}
+      />
+      <Memo(SearchButton)
+        isDisabled={false}
+        label="Random non alcoholic beer"
+        onClickHandler={[Function]}
+      />
+    </div>
+  </div>
+</div>
+`;

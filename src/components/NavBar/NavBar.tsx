@@ -8,7 +8,9 @@ import "./NavBar.scss";
 const NavBar: FunctionComponent = () => {
   return (
     <div className="nav-bar">
-      <p className="nav-bar-title">{APP_HEADER}</p>
+      <p data-test-id="nav-bar-text" className="nav-bar-title">
+        {APP_HEADER}
+      </p>
     </div>
   );
 };

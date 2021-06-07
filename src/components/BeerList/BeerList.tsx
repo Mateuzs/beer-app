@@ -12,7 +12,7 @@ import "./BeerList.scss";
 const BeerList: FunctionComponent<BeerListProps> = ({ beerList, isFetchedBeerList }) =>
   !!beerList.length ? (
     <div className="beer-list-container">
-      <ul className="beer-list">
+      <ul className="beer-list" data-test-id="beer-list">
         {beerList.map((beer: Beer) => (
           <li className="beer-element" key={beer.id}>
             <div className="beer-element-image">
@@ -30,7 +30,9 @@ const BeerList: FunctionComponent<BeerListProps> = ({ beerList, isFetchedBeerLis
       </ul>
     </div>
   ) : isFetchedBeerList ? (
-    <div className="beer-search-info">{BEER_SEARCH_INFO}</div>
+    <div data-test-id="beer-search-info" className="beer-search-info">
+      {BEER_SEARCH_INFO}
+    </div>
   ) : null;
 
 export default memo(BeerList);

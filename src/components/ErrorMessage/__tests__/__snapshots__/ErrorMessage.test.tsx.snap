@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorMessage component should match the snapshot and styles 1`] = `
+<div
+  className="error-message-container"
+  data-test-id="error-message-info"
+>
+  <h3
+    className="error-message"
+  >
+    ERROR_MESSAGE
+  </h3>
+</div>
+`;

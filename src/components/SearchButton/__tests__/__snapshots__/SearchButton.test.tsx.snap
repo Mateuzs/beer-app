@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchButton component should match the snapshot and styles 1`] = `
+<button
+  className="search-button"
+  data-test-id="search-button"
+  disabled={false}
+  onClick={[MockFunction]}
+>
+  BUTTON_LABEL
+</button>
+`;

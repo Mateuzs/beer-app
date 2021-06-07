@@ -2,7 +2,7 @@
 import { FunctionComponent, useEffect, useState, useCallback } from "react";
 import axios from "axios";
 // components
-import { ErrorMessage, LazyLoadImageContainer, SearchButton } from "../../components";
+import { LazyLoadImageContainer, SearchButton } from "../../components";
 // types
 import { Beer, PunkApiBeer, DisplayRandomBeerContainerProps } from "../../types";
 // constants, utils
@@ -81,13 +81,20 @@ const DisplayRandomBeerContainer: FunctionComponent<DisplayRandomBeerContainerPr
 
   return (
     <div className="random-beer-container">
-      <p className="random-beer-title">{randomBeer.name}</p>
+      <p data-test-id="random-beer-title" className="random-beer-title">
+        {randomBeer.name}
+      </p>
       <div className="random-beer-description-container">
-        <div className="random-beer-image">
+        <div data-test-id="random-beer-image" className="random-beer-image">
           <LazyLoadImageContainer imageUrl={randomBeer.imageUrl} height={BEER_IMAGE_HEIGHT_PX} />
         </div>
-        <div className="random-beer-description">{randomBeer.description}</div>
-        <div className="random-beer-description-buttons">
+        <div data-test-id="random-beer-description" className="random-beer-description">
+          {randomBeer.description}
+        </div>
+        <div
+          data-test-id="random-beer-description-buttons"
+          className="random-beer-description-buttons"
+        >
           <SearchButton
             isDisabled={isFetching}
             label={LABEL_SEARCH_BEER}
