@@ -4,6 +4,9 @@
 /.pnp
 .pnp.js
 
+# test
+/coverage
+
 # production
 /build
 
