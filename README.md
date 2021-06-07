@@ -71,12 +71,16 @@ optimization, code splitting into smaller chunks, tree shaking, hot reload durin
 
 For request making to the Beer API, project uses [axios](https://github.com/axios/axios) library, popular and tested dependency.
 
+All beer icons are fetched asynchronously with [react-lazyload](https://github.com/twobin/react-lazyload) library (simple and reusable, but for better
+performance it's recommened to implement own solution - for example with Intersection Observer Api etc. to remove dependency)
+
 To sum up, technology used in the project is:
 
 - React
 - Typescript
 - Sass
 - axios
+- react-lazyload
 - Jest
 - Enzyme
 
